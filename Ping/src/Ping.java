@@ -85,12 +85,12 @@ public class Ping extends JFrame{
     }
 	
 	public static void redraw() {
-		mainDraw.paintImmediately(0, 0, 406, 428);
+		mainDraw.paintImmediately(0, 0, 500, 500);
 	}
 	
     public static void createWindow() {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(406,428);
+        window.setSize(500,500);
         window.setResizable(false);
         window.setVisible(true);
         window.getContentPane().setBackground(Color.BLACK);
