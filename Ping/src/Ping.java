@@ -64,7 +64,7 @@ public class Ping extends JFrame{
 	           		o.process(((double)Math.round(delta * 100d) / 100d));
 	           	}
 	           	process(((double)Math.round(delta * 100d) / 100d));
-	           	delta--;
+	           	delta=0;
 		    }
 	    }
 	}

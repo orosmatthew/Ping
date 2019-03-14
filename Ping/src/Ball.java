@@ -33,16 +33,16 @@ public class Ball extends gameObject {
 	}
 
 	public void process(double delta) {
-		if (Ping.isKeyPressed(KeyEvent.VK_UP)) {
+		if (Ping.isKeyPressed(KeyEvent.VK_UP) || Ping.isKeyPressed(KeyEvent.VK_W)) {
 			posY-=(speed*delta);
 		}
-		if (Ping.isKeyPressed(KeyEvent.VK_DOWN)) {
+		if (Ping.isKeyPressed(KeyEvent.VK_DOWN) || Ping.isKeyPressed(KeyEvent.VK_S)) {
 			posY+=(speed*delta);
 		}
-		if (Ping.isKeyPressed(KeyEvent.VK_LEFT)) {
+		if (Ping.isKeyPressed(KeyEvent.VK_LEFT) || Ping.isKeyPressed(KeyEvent.VK_A)) {
 			posX-=(speed*delta);
 		}
-		if (Ping.isKeyPressed(KeyEvent.VK_RIGHT)) {
+		if (Ping.isKeyPressed(KeyEvent.VK_RIGHT) || Ping.isKeyPressed(KeyEvent.VK_D)) {
 			posX+=(speed*delta);
 		}
 		/*
