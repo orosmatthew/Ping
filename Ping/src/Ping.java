@@ -23,9 +23,8 @@ public class Ping extends JFrame{
 		createWindow();
 		SwingUtilities.updateComponentTreeUI(window);
 		window.getContentPane().add(mainDraw);
-    	window.addKeyListener(new KeyListener() {
-			public void keyTyped(KeyEvent e) {
-			}
+		window.addKeyListener(new KeyListener() {
+			public void keyTyped(KeyEvent e) {}
 			public void keyPressed(KeyEvent e) {
 				if(!keysPressed.contains(e.getKeyCode())) {
 					keysPressed.add(e.getKeyCode());

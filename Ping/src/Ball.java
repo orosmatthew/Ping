@@ -5,58 +5,60 @@ import com.sun.glass.events.KeyEvent;
 
 public class Ball extends gameObject {
 
-	private int posX;
-	private int posY;
+	private double posX;
+	private double posY;
 	private int sizeX;
 	private int sizeY;
 	private Color color;
-	private double speed;
-	//private boolean toggle;
+	private double speed = 3;
+	private double[] velocity = {1,1};
 	
-	public Ball(int x, int y, int sx, int sy, Color c, double s) {
+	public Ball(double x, double y, int sx, int sy, Color c, double s) {
 		posX = x;
 		posY = y;
 		sizeX = sx;
 		sizeY = sy;
 		color = c;
 		speed = s;
-		//toggle = false;
 	}
 	
 	
 	public void paintObject(Graphics g) {
     	g.setColor(color);
-        g.drawOval(posX,posY,sizeX,sizeY);
+        g.drawOval((int)posX,(int)posY,sizeX,sizeY);
         g.setColor(color);
-        g.fillOval(posX,posY,sizeX,sizeY);
+        g.fillOval((int)posX,(int)posY,sizeX,sizeY);
 		
 	}
 
 	public void process(double delta) {
-		if (Ping.isKeyPressed(KeyEvent.VK_UP) || Ping.isKeyPressed(KeyEvent.VK_W)) {
-			posY-=(speed*delta);
+		//Normalize velocity vector at certain speed
+		double angle = Math.atan2(velocity[1], velocity[0]);
+		velocity[0] = speed*Math.cos(angle);
+		velocity[1] = speed*Math.sin(angle);
+		
+		//Wall Collision
+		//Added randomness to wall collisions
+		if(posX>=471) {
+			velocity[0]*=-1;
+			velocity[0]+=((Math.random()-0.5)*0.2);
 		}
-		if (Ping.isKeyPressed(KeyEvent.VK_DOWN) || Ping.isKeyPressed(KeyEvent.VK_S)) {
-			posY+=(speed*delta);
+		if(posX<=0) {
+			velocity[0]*=-1;
+			velocity[0]+=((Math.random()-0.5)*0.2);
 		}
-		if (Ping.isKeyPressed(KeyEvent.VK_LEFT) || Ping.isKeyPressed(KeyEvent.VK_A)) {
-			posX-=(speed*delta);
+		if(posY>=448) {
+			velocity[1]*=-1;
+			velocity[1]+=((Math.random()-0.5)*0.2);
 		}
-		if (Ping.isKeyPressed(KeyEvent.VK_RIGHT) || Ping.isKeyPressed(KeyEvent.VK_D)) {
-			posX+=(speed*delta);
+		if(posY<=0) {
+			velocity[1]*=-1;
+			velocity[1]+=((Math.random()-0.5)*0.2);
 		}
-		/*
-		if(posX>375 && toggle == false)
-			toggle = true;
-		else if(posX<0 && toggle == true)
-			toggle = false;
-        if(toggle == false){
-        	posX+=(speed*delta);
-        	posY+=(speed*delta);
-        }
-        if(toggle == true){
-        	posX-=(speed*delta);
-        	posY-=(speed*delta);
-        }*/
+		
+		//Apply Motion
+		posX+=(velocity[0]*delta);
+		posY+=(velocity[1]*delta);
+		
 	}
 }
