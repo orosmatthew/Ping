@@ -8,13 +8,16 @@ public class Paddle2 extends Paddle {
 	}
 	
 	public void process(double delta) {
+		currentSpeed = 0;
 		if (Ping.isKeyPressed(KeyEvent.VK_UP)) {
 			if(posY>=10) {
+				currentSpeed = speed;
 				posY-=(speed*delta);
 			}
 		}
 		if (Ping.isKeyPressed(KeyEvent.VK_DOWN)) {
 			if(posY<=411) {
+				currentSpeed = -speed;
 				posY+=(speed*delta);
 			}
 		}

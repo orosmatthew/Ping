@@ -9,6 +9,7 @@ public class Paddle extends gameObject{
 	protected int sizeX;
 	protected int sizeY;
 	protected double speed;
+	protected double currentSpeed;
 	
 	public Paddle() {}
 	
@@ -29,14 +30,23 @@ public class Paddle extends gameObject{
 		
 	}
 	
+	public double getPosX() { return posX; }
+	public double getPosY() { return posY; }
+	public int getSizeX() { return sizeX; }
+	public int getSizeY() { return sizeY; }
+	public double getCurrentSpeed() { return currentSpeed; }
+	
 	public void process(double delta) {
+		currentSpeed = 0;
 		if (Ping.isKeyPressed(KeyEvent.VK_W)) {
 			if(posY>=10) {
+				currentSpeed = speed;
 				posY-=(speed*delta);
 			}
 		}
 		if (Ping.isKeyPressed(KeyEvent.VK_S)) {
 			if(posY<=411) {
+				currentSpeed = -speed;
 				posY+=(speed*delta);
 			}
 		}
