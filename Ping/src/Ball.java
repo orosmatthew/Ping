@@ -47,12 +47,13 @@ public class Ball extends gameObject {
 		double angle = Math.atan2(velocity[1], velocity[0]);
 		velocity[0] = speed*Math.cos(angle);
 		velocity[1] = speed*Math.sin(angle);
-		
 		//Paddle Collision
 		if (paddleLeft!=null) {
 			if(posY>=(paddleLeft.getPosY()-sizeY) && posY<=(paddleLeft.getPosY()+paddleLeft.getSizeY())) {
 				if (posX>=paddleLeft.getPosX() && posX<=(paddleLeft.getPosX()+paddleLeft.getSizeX())) {
-					velocity[0]*=-1;
+					if (velocity[0]<0) {
+						velocity[0]*=-1;
+					}
 					velocity[1]-=(paddleLeft.getCurrentSpeed()*0.3);
 				}
 			}
@@ -60,7 +61,9 @@ public class Ball extends gameObject {
 		if (paddleRight!=null) {
 			if(posY>=(paddleRight.getPosY()-sizeY) && posY<=(paddleRight.getPosY()+paddleRight.getSizeY())) {
 				if (posX<=paddleRight.getPosX() && posX>=(paddleRight.getPosX()-sizeX)) {
-					velocity[0]*=-1;
+					if (velocity[0]>0) {
+						velocity[0]*=-1;
+					}
 					velocity[1]-=(paddleRight.getCurrentSpeed()*0.3);
 				}
 			}
