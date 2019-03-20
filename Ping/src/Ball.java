@@ -72,24 +72,32 @@ public class Ball extends gameObject {
 		//Wall Collision
 		//Added randomness to wall collisions
 		if(posX>=471) {
-			velocity[0]*=-1;
-			velocity[0]+=((Math.random()-0.5)*0.3);
-			velocity[1]+=((Math.random()-0.5)*0.3);
+			if (velocity[0]>0) {
+				velocity[0]*=-1;
+			}
+			velocity[0]+=((Math.random()-0.5)*2);
+			velocity[1]+=((Math.random()-0.5)*2);
 		}
 		if(posX<=0) {
-			velocity[0]*=-1;
-			velocity[0]+=((Math.random()-0.5)*0.3);
-			velocity[1]+=((Math.random()-0.5)*0.3);
+			if (velocity[0]<0) {
+				velocity[0]*=-1;
+			}
+			velocity[0]+=((Math.random()-0.5)*2);
+			velocity[1]+=((Math.random()-0.5)*2);
 		}
 		if(posY>=448) {
-			velocity[1]*=-1;
-			velocity[0]+=((Math.random()-0.5)*0.3);
-			velocity[1]+=((Math.random()-0.5)*0.3);
+			if (velocity[1]>0) {
+				velocity[1]*=-1;
+			}
+			velocity[0]+=((Math.random()-0.5)*2);
+			velocity[1]+=((Math.random()-0.5)*2);
 		}
 		if(posY<=0) {
-			velocity[1]*=-1;
-			velocity[0]+=((Math.random()-0.5)*0.3);
-			velocity[1]+=((Math.random()-0.5)*0.3);
+			if (velocity[1]<0) {
+				velocity[1]*=-1;
+			}
+			velocity[0]+=((Math.random()-0.5)*2);
+			velocity[1]+=((Math.random()-0.5)*2);
 		}
 		
 		//Apply Motion

@@ -14,14 +14,14 @@ public class Ping extends JFrame{
 	private static ArrayList<Integer> keysPressed = new ArrayList<>();
 	
 	public static void init() {
-		gameObject ball = new Ball(240,230,20,20,Color.WHITE,4);
+		gameObject ball = new Ball(240,230,20,20,Color.WHITE,9);
 		objects.add(ball);
 		
-		gameObject paddle = new Paddle(5,5,10,50,Color.WHITE,5);
+		gameObject paddle = new Paddle(5,5,10,80,Color.WHITE,9);
 		objects.add(paddle);
 		((Ball)ball).setPaddleLeft((Paddle)paddle);
 		
-		gameObject paddle2 = new Paddle2(478,5,10,50,Color.WHITE,5);
+		gameObject paddle2 = new Paddle2(478,5,10,80,Color.WHITE,9);
 		objects.add(paddle2);
 		((Ball)ball).setPaddleRight((Paddle)paddle2);
 		
