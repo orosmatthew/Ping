@@ -66,8 +66,11 @@ public class Ball extends gameObject {
 				if (posX>=paddleLeft.getPosX() && posX<=(paddleLeft.getPosX()+paddleLeft.getSizeX())) {
 					if (velocity[0]<0) {
 						velocity[0]*=-1;
+						velocity[0]+=((Math.random()-0.5)*5);
+						velocity[1]+=((Math.random()-0.5)*5);
 					}
 					velocity[1]-=(paddleLeft.getCurrentSpeed()*0.3);
+
 				}
 			}
 		}
@@ -76,8 +79,11 @@ public class Ball extends gameObject {
 				if (posX<=paddleRight.getPosX() && posX>=(paddleRight.getPosX()-sizeX)) {
 					if (velocity[0]>0) {
 						velocity[0]*=-1;
+						velocity[0]+=((Math.random()-0.5)*5);
+						velocity[1]+=((Math.random()-0.5)*5);
 					}
 					velocity[1]-=(paddleRight.getCurrentSpeed()*0.3);
+
 				}
 			}
 		}

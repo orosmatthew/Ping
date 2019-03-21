@@ -72,6 +72,10 @@ public class Ping extends JFrame{
 			v[0] = -1;
 		}
 		mainBall.setVelocity(v);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {}
+		lastTime = System.nanoTime();
 	}
 	
 	public static boolean isKeyPressed(int code) {
@@ -81,8 +85,10 @@ public class Ping extends JFrame{
 			return false;
 
 	}
+	private static long lastTime = System.nanoTime();
+	
 	public static void gameLoop() {
-	    long lastTime = System.nanoTime();
+	    lastTime = System.nanoTime();
 	    final double TARGET_FPS = 60.0;
 	    final double OPTIMAL_TIME = 1000000000 / TARGET_FPS;
 	    double delta = 0;
@@ -109,12 +115,12 @@ public class Ping extends JFrame{
 	
 	static class Draw extends JComponent{
 		private static final long serialVersionUID = 1L;
-
+		private static Font f = new Font("Futura", Font.PLAIN, 36);
 		public void paint(Graphics g){
             for(gameObject o : objects) {
             	o.paintObject(g);
             }
-            g.setFont(new Font("Arial", Font.PLAIN, 36)); 
+            g.setFont(f); 
             g.drawString(wins[0]+"", 140, 40);
             g.drawString(wins[1]+"", 340, 40);
         }
