@@ -36,6 +36,14 @@ public class Paddle extends gameObject{
 	public int getSizeY() { return sizeY; }
 	public double getCurrentSpeed() { return currentSpeed; }
 	
+	public void setPosX(double x) {
+		posX = x;
+	}
+	
+	public void setPosY(double y) {
+		posY = y;
+	}
+	
 	public void process(double delta) {
 		currentSpeed = 0;
 		if (Ping.isKeyPressed(KeyEvent.VK_W)) {

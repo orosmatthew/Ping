@@ -12,18 +12,26 @@ public class Ping extends JFrame{
 	
 	private static ArrayList<gameObject> objects = new ArrayList<>();
 	private static ArrayList<Integer> keysPressed = new ArrayList<>();
+	private static int[] wins = {0,0};
+	
+	private static Ball mainBall;
+	private static Paddle leftPaddle;
+	private static Paddle rightPaddle;
 	
 	public static void init() {
 		gameObject ball = new Ball(240,230,20,20,Color.WHITE,9);
 		objects.add(ball);
+		mainBall = (Ball) ball;
 		
-		gameObject paddle = new Paddle(5,5,10,80,Color.WHITE,9);
+		gameObject paddle = new Paddle(5,200,10,80,Color.WHITE,9);
 		objects.add(paddle);
 		((Ball)ball).setPaddleLeft((Paddle)paddle);
+		leftPaddle = (Paddle) paddle;
 		
-		gameObject paddle2 = new Paddle2(478,5,10,80,Color.WHITE,9);
+		gameObject paddle2 = new Paddle2(478,200,10,80,Color.WHITE,9);
 		objects.add(paddle2);
 		((Ball)ball).setPaddleRight((Paddle)paddle2);
+		rightPaddle = (Paddle) paddle2;
 		
 	}
 	
@@ -48,6 +56,24 @@ public class Ping extends JFrame{
 		init();
 		gameLoop();
 	}
+	
+	public static void win(int n) {
+		wins[n] += 1;
+		mainBall.setPosX(240);
+		mainBall.setPosY(230);
+		leftPaddle.setPosX(5);
+		leftPaddle.setPosY(200);
+		rightPaddle.setPosX(478);
+		rightPaddle.setPosY(200);
+		int[] v = {0,0};
+		if (n==1) {
+			v[0] = 1;
+		}else {
+			v[0] = -1;
+		}
+		mainBall.setVelocity(v);
+	}
+	
 	public static boolean isKeyPressed(int code) {
 		if (keysPressed.contains((Integer)(code)))
 			return true;
@@ -88,6 +114,9 @@ public class Ping extends JFrame{
             for(gameObject o : objects) {
             	o.paintObject(g);
             }
+            g.setFont(new Font("Arial", Font.PLAIN, 36)); 
+            g.drawString(wins[0]+"", 140, 40);
+            g.drawString(wins[1]+"", 340, 40);
         }
     }
 	

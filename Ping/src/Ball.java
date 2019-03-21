@@ -27,11 +27,24 @@ public class Ball extends gameObject {
 	public int getSizeX() { return sizeX; }
 	public int getSizeY() { return sizeY; }
 	
+	public void setPosX(double x) {
+		posX = x;
+	}
+	
+	public void setPosY(double y) {
+		posY = y;
+	}
+	
 	public void setPaddleLeft(Paddle p) {
 		paddleLeft = p;
 	}
 	public void setPaddleRight(Paddle p) {
 		paddleRight = p;
+	}
+	
+	public void setVelocity(int[] v) {
+		velocity[0] = v[0];
+		velocity[1] = v[1];
 	}
 	
 	public void paintObject(Graphics g) {
@@ -77,6 +90,7 @@ public class Ball extends gameObject {
 			}
 			velocity[0]+=((Math.random()-0.5)*2);
 			velocity[1]+=((Math.random()-0.5)*2);
+			Ping.win(0);
 		}
 		if(posX<=0) {
 			if (velocity[0]<0) {
@@ -84,6 +98,7 @@ public class Ball extends gameObject {
 			}
 			velocity[0]+=((Math.random()-0.5)*2);
 			velocity[1]+=((Math.random()-0.5)*2);
+			Ping.win(1);
 		}
 		if(posY>=448) {
 			if (velocity[1]>0) {
