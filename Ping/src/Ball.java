@@ -14,8 +14,8 @@ public class Ball extends gameObject {
 	private Paddle paddleRight;
 	
 	public Ball(double x, double y, int sx, int sy, Color c, double s) {
-		posX = x;
-		posY = y;
+		posX = x-(sx*0.5);
+		posY = y-(sy*0.5);
 		sizeX = sx;
 		sizeY = sy;
 		color = c;
