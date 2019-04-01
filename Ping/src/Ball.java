@@ -90,7 +90,7 @@ public class Ball extends gameObject {
 		
 		//Wall Collision
 		//Added randomness to wall collisions
-		if(posX>=471) {
+		if(posX>=(491-sizeX)) {
 			if (velocity[0]>0) {
 				velocity[0]*=-1;
 			}
@@ -106,7 +106,7 @@ public class Ball extends gameObject {
 			velocity[1]+=((Math.random()-0.5)*2);
 			Ping.win(1);
 		}
-		if(posY>=448) {
+		if(posY>=(468-sizeY)) {
 			if (velocity[1]>0) {
 				velocity[1]*=-1;
 			}
