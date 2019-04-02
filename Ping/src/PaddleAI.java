@@ -4,7 +4,6 @@ public class PaddleAI extends Paddle {
 	
 	public PaddleAI(double x, double y, int sx, int sy, Color c, double s) {
 		super(x, y, sx, sy, c, s);
-		origSpeed = s;
 	}
 	
 	public void process(double delta) {
