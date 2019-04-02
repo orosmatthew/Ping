@@ -14,21 +14,21 @@ public class Ping extends JFrame{
 	private static ArrayList<Integer> keysPressed = new ArrayList<>();
 	private static int[] wins = {0,0};
 	
-	private static Ball mainBall;
-	private static Paddle leftPaddle;
-	private static Paddle rightPaddle;
+	static Ball mainBall;
+	static Paddle leftPaddle;
+	static Paddle rightPaddle;
 	
 	public static void init() {
 		gameObject ball = new Ball(240,230,20,20,Color.WHITE,9);
 		objects.add(ball);
 		mainBall = (Ball) ball;
 		
-		gameObject paddle = new Paddle(5,200,10,80,Color.WHITE,9);
+		gameObject paddle = new PaddleAI(5,200,10,80,Color.WHITE,9);
 		objects.add(paddle);
 		((Ball)ball).setPaddleLeft((Paddle)paddle);
 		leftPaddle = (Paddle) paddle;
 		
-		gameObject paddle2 = new Paddle2(478,200,10,80,Color.WHITE,9);
+		gameObject paddle2 = new PaddleAI(478,200,10,80,Color.WHITE,9);
 		objects.add(paddle2);
 		((Ball)ball).setPaddleRight((Paddle)paddle2);
 		rightPaddle = (Paddle) paddle2;
