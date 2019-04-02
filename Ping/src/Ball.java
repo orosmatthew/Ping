@@ -67,7 +67,7 @@ public class Ball extends gameObject {
 					if (velocity[0]<0) {
 						velocity[0]*=-1;
 						velocity[0]+=((Math.random()-0.5)*5);
-						velocity[1]+=((Math.random()-0.5)*5);
+						velocity[1]+=((Math.random()-0.5)*2);
 					}
 					velocity[1]-=(paddleLeft.getCurrentSpeed()*0.3);
 
@@ -80,7 +80,7 @@ public class Ball extends gameObject {
 					if (velocity[0]>0) {
 						velocity[0]*=-1;
 						velocity[0]+=((Math.random()-0.5)*5);
-						velocity[1]+=((Math.random()-0.5)*5);
+						velocity[1]+=((Math.random()-0.5)*2);
 					}
 					velocity[1]-=(paddleRight.getCurrentSpeed()*0.3);
 
@@ -94,31 +94,31 @@ public class Ball extends gameObject {
 			if (velocity[0]>0) {
 				velocity[0]*=-1;
 			}
-			velocity[0]+=((Math.random()-0.5)*2);
-			velocity[1]+=((Math.random()-0.5)*2);
+			velocity[0]+=((Math.random()-0.5)*4);
+			velocity[1]+=((Math.random()-0.5)*1.5);
 			Ping.win(0);
 		}
 		if(posX<=0) {
 			if (velocity[0]<0) {
 				velocity[0]*=-1;
 			}
-			velocity[0]+=((Math.random()-0.5)*2);
-			velocity[1]+=((Math.random()-0.5)*2);
+			velocity[0]+=((Math.random()-0.5)*4);
+			velocity[1]+=((Math.random()-0.5)*1.5);
 			Ping.win(1);
 		}
 		if(posY>=(468-sizeY)) {
 			if (velocity[1]>0) {
 				velocity[1]*=-1;
 			}
-			velocity[0]+=((Math.random()-0.5)*2);
-			velocity[1]+=((Math.random()-0.5)*2);
+			velocity[0]+=((Math.random()-0.5)*4);
+			velocity[1]+=((Math.random()-0.5)*1.5);
 		}
 		if(posY<=0) {
 			if (velocity[1]<0) {
 				velocity[1]*=-1;
 			}
-			velocity[0]+=((Math.random()-0.5)*2);
-			velocity[1]+=((Math.random()-0.5)*2);
+			velocity[0]+=((Math.random()-0.5)*4);
+			velocity[1]+=((Math.random()-0.5)*1.5);
 		}
 		
 		//Apply Motion
