@@ -23,7 +23,7 @@ public class Ping extends JFrame{
 		objects.add(ball);
 		mainBall = (Ball) ball;
 		
-		gameObject paddle = new Paddle(5,200,10,80,Color.WHITE,6);
+		gameObject paddle = new Paddle(5,200,10,80,Color.WHITE,9);
 		objects.add(paddle);
 		((Ball)ball).setPaddleLeft((Paddle)paddle);
 		leftPaddle = (Paddle) paddle;
